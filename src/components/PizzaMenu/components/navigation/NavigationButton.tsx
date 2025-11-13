@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { NavigationButtonProps } from '../types'
+import { NavigationButtonProps } from '@/types/components/PizzaMenu'
 
 
 export const NavigationButton = ({ direction, onClick }: NavigationButtonProps) => {

@@ -1,6 +1,6 @@
 import { ShoppingBasket, Star } from "lucide-react";
 import Image from "next/image";
-import { PizzaCardProps } from "../types";
+import { PizzaCardProps } from "@/types/components/PizzaMenu";
 
 export const PizzaCard = ({ pizza }: PizzaCardProps) => {
   return (

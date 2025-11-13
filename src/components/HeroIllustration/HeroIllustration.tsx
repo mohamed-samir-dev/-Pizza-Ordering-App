@@ -1,8 +1,8 @@
 "use client";
-import { useHeroAnnotation } from "../../hooks/useHeroAnnotation";
-import { HeroImage } from "./HeroImage";
-import { HeroContent } from "./HeroContent";
-import { BackgroundEffects } from "./BackgroundEffects";
+import { useHeroAnnotation } from "../../hooks/ui/useHeroAnnotation";
+import { HeroImage } from "./ui/HeroImage";
+import { HeroContent } from "./content/HeroContent";
+import { BackgroundEffects } from "./ui/BackgroundEffects";
 
 const HeroIllustration = () => {
   const { todayRef } = useHeroAnnotation();

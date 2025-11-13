@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { HeaderState } from '../types/header';
+import { HeaderState } from '@/types/components/header';
 
 export const useHeader = (initialCartCount: number = 0): HeaderState & {
   toggleMenu: () => void;

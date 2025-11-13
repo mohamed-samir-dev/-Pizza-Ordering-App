@@ -1,4 +1,4 @@
-import { FeatureCardProps } from "@/types/hero";
+import { FeatureCardProps } from "@/types/ui/hero";
 
 export const FeatureCard = ({ icon: Icon, title, description, iconBgColor, iconColor }: FeatureCardProps) => {
   return (

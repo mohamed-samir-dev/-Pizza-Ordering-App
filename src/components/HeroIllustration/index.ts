@@ -1,5 +1,5 @@
 export { default as HeroIllustration } from './HeroIllustration';
-export { HeroImage } from './HeroImage';
-export { HeroContent } from './HeroContent';
-export { FeatureCard } from './FeatureCard';
-export { BackgroundEffects } from './BackgroundEffects';
+export { HeroImage } from './ui/HeroImage';
+export { HeroContent } from './content/HeroContent';
+export { FeatureCard } from './content/FeatureCard';
+export { BackgroundEffects } from './ui/BackgroundEffects';

@@ -1,4 +1,5 @@
 // Type definitions
-export * from './header';
+export * from './components/header';
+export * from './components/PizzaMenu';
 export * from './auth';
-export * from './hero';
+export * from './ui/hero';

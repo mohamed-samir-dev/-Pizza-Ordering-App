@@ -1,4 +1,4 @@
-import { NavItem } from '../types/header';
+import { NavItem } from '@/types/components/header';
 
 export const useNavigation = (): NavItem[] => {
   return [

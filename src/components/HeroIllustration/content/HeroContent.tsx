@@ -1,6 +1,6 @@
 import { ShoppingCart, Star } from "lucide-react";
 import { Alex_Brush } from "@next/font/google";
-import { HeroContentProps } from "@/types/hero";
+import { HeroContentProps } from "@/types/ui/hero";
 import { FeatureCard } from "./FeatureCard";
 
 const alexBrush = Alex_Brush({

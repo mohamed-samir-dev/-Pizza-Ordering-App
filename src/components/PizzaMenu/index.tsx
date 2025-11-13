@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { MenuHeader } from "./components/MenuHeader";
-import { PizzaCarousel } from "./components/PizzaCarousel";
-import { useAnnotation } from "../../hooks/useAnnotation";
-import { useCarousel } from "../../hooks/useCarousel";
-import { useSwipeNavigation } from "../../hooks/useSwipeNavigation";
+import { MenuHeader } from "./components/ui/MenuHeader";
+import { PizzaCarousel } from "./components/navigation/PizzaCarousel";
+import { useAnnotation } from "../../hooks/ui/useAnnotation";
+import { useCarousel } from "../../hooks/navigation/useCarousel";
+import { useSwipeNavigation } from "../../hooks/navigation/useSwipeNavigation";
 import { pizzas } from "./data/pizzas";
 
 export default function PizzaMenu() {

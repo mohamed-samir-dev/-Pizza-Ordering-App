@@ -7,7 +7,7 @@ export interface FeatureCardProps {
 }
 
 export interface HeroContentProps {
-  todayRef: React.RefObject<HTMLSpanElement>;
+  todayRef: React.RefObject<HTMLSpanElement | null>;
 }
 
 export interface HeroImageProps {

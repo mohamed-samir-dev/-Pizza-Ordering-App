@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { HeroImageProps } from "@/types/hero";
+import { HeroImageProps } from "@/types/ui/hero";
 
 export const HeroImage = ({ src, alt }: HeroImageProps) => {
   return (

@@ -1,8 +1,6 @@
 import { NavigationButton } from "./NavigationButton";
-import { PizzaCard } from "./PizzaCard";
-import { PizzaCarouselProps } from "../types";
-
-
+import { PizzaCard } from "../ui/PizzaCard";
+import { PizzaCarouselProps } from "@/types/components/PizzaMenu";
 
 export const PizzaCarousel = ({ pizzas, currentIndex, onNext, onPrev }: PizzaCarouselProps) => {
   const getTransformValue = () => {

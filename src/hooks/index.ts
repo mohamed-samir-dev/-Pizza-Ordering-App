@@ -1,7 +1,7 @@
 // Custom React hooks
-export { useCounterAnimation } from './useCounterAnimation';
-export { useHeader } from './useHeader';
-export { useNavigation } from './useNavigation';
-export { useAuth } from './useAuth';
-export { useSignupForm } from './useSignupForm';
-export { useHeroAnnotation } from './useHeroAnnotation';
+export { useCounterAnimation } from './ui/useCounterAnimation';
+export { useHeader } from './ui/useHeader';
+export { useNavigation } from './navigation/useNavigation';
+export { useAuth } from './auth/useAuth';
+export { useSignupForm } from './auth/useSignupForm';
+export { useHeroAnnotation } from './ui/useHeroAnnotation';

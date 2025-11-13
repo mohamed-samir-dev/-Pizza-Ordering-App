@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
-import { User } from '../types';
+import { User } from '@/types';
 
 export function useAuth() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
