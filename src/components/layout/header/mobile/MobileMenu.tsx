@@ -3,6 +3,7 @@ import { FiUser, FiSearch, FiShoppingCart, FiLogOut } from "react-icons/fi";
 import { MobileMenuProps } from "../../../../types";
 import { useNavigation, useAuth } from "../../../../hooks";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/contexts/CartContext";
 
 export default function MobileMenu({
   isOpen,
@@ -12,6 +13,7 @@ export default function MobileMenu({
   const navItems = useNavigation();
   const router = useRouter();
   const { currentUser, logout } = useAuth();
+  const { totalItems, toggleCart } = useCart();
 
   const handleLogin = () => {
     router.push("/login");
@@ -20,6 +22,11 @@ export default function MobileMenu({
 
   const handleLogout = () => {
     logout();
+  };
+
+  const handleCartClick = () => {
+    toggleCart();
+    onClose();
   };
 
   return (
@@ -44,12 +51,15 @@ export default function MobileMenu({
             <FiSearch className="w-4 h-4" />
             <span>Search</span>
           </button>
-          <button className="relative w-full bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2 text-gray-300 hover:text-white">
+          <button 
+            onClick={handleCartClick}
+            className="relative w-full bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2 text-gray-300 hover:text-white"
+          >
             <FiShoppingCart className="w-4 h-4" />
             <span>Basket</span>
-            {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-linear-to-r from-orange-500 to-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
-                {cartCount}
+            {totalItems > 0 && (
+              <span className="absolute -top-1 -right-1 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
+                {totalItems}
               </span>
             )}
           </button>
