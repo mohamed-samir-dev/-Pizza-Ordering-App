@@ -1,7 +1,8 @@
 'use client'
 import React from 'react';
-import { X, Plus, Minus, ShoppingBag } from 'lucide-react';
+import { X, Plus, Minus, ShoppingBag, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/contexts/ToastContext';
 
@@ -129,18 +130,20 @@ export const CartSidebar: React.FC = () => {
               </div>
               
               <div className="space-y-3">
+                <Link 
+                  href="/cart"
+                  onClick={toggleCart}
+                  className="w-full bg-linear-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>View Full Cart</span>
+                </Link>
+                
                 <button 
                   onClick={handleCheckout}
-                  className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  Proceed to Checkout
-                </button>
-                
-                <button
-                  onClick={handleClearCart}
                   className="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
                 >
-                  Clear Cart
+                  Quick Checkout
                 </button>
               </div>
             </div>
