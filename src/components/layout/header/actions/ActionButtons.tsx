@@ -3,16 +3,22 @@ import { FiSearch, FiUser, FiMenu, FiX, FiLogOut } from 'react-icons/fi';
 import { ActionButtonsProps } from '../../../../types';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../../../hooks';
-import { ShoppingBasket } from "lucide-react";
+import { ShoppingBasket, Heart } from "lucide-react";
 import { useCart } from '@/contexts/CartContext';
+import { useFavorites } from '@/contexts/FavoritesContext';
 
 export default function ActionButtons({ isMenuOpen, onMenuToggle }: Omit<ActionButtonsProps, 'cartCount'>) {
   const router = useRouter();
   const { currentUser, logout } = useAuth();
   const { totalItems } = useCart();
+  const { totalFavorites } = useFavorites();
 
   const handleCartClick = () => {
     router.push('/cart');
+  };
+
+  const handleFavoritesClick = () => {
+    router.push('/favorites');
   };
 
   const handleLogin = () => {
@@ -27,6 +33,18 @@ export default function ActionButtons({ isMenuOpen, onMenuToggle }: Omit<ActionB
     <div className="flex items-center space-x-4">
       <button className="hidden lg:flex p-2 hover:bg-white/10 rounded-lg transition-colors duration-300 group cursor-pointer">
         <FiSearch className="w-5 h-5 text-gray-300 group-hover:text-white" />
+      </button>
+      
+      <button 
+        onClick={handleFavoritesClick}
+        className="relative hidden lg:flex p-2 hover:bg-white/10 rounded-lg transition-colors duration-300 group cursor-pointer"
+      >
+        <Heart className="w-5 h-5 text-gray-400 hover:text-red-500 cursor-pointer transition-colors" />
+        {totalFavorites > 0 && (
+          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
+            {totalFavorites}
+          </span>
+        )}
       </button>
       
       <button 
