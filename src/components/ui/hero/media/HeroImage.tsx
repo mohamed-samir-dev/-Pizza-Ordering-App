@@ -1,9 +1,9 @@
-'use client'
-import { FiHeart } from 'react-icons/fi';
-import { Pizza } from 'lucide-react';
-import Image from 'next/image';
-import { annotate } from 'rough-notation';
-import { useEffect, useRef } from 'react';
+"use client";
+import { FiHeart } from "react-icons/fi";
+import { Pizza } from "lucide-react";
+import Image from "next/image";
+import { annotate } from "rough-notation";
+import { useEffect, useRef } from "react";
 
 export default function HeroImage() {
   const scribbleRef = useRef<HTMLDivElement>(null);
@@ -38,7 +38,7 @@ export default function HeroImage() {
           className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] xl:w-[500px] xl:h-[500px] rounded-2xl overflow-hidden  "
         >
           <Image
-            src="/ChatGPT Image 11 نوفمبر 2025، 06_45_40 م-Photoroom.png"
+            src="https://github.com/mohamed-samir-dev/my-assets/blob/master/ChatGPT%20Image%2011%20%D9%86%D9%88%D9%81%D9%85%D8%A8%D8%B1%202025%D8%8C%2006_45_40%20%D9%85-Photoroom.png?raw=true"
             alt="Delicious pizza hero image"
             fill
             className="object-cover"
