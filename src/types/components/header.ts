@@ -1,5 +1,4 @@
 export interface ActionButtonsProps {
-  cartCount: number;
   isMenuOpen: boolean;
   onMenuToggle: () => void;
 }
@@ -18,5 +17,4 @@ export interface NavItem {
 
 export interface HeaderState {
   isMenuOpen: boolean;
-  cartCount: number;
 }
