@@ -5,9 +5,11 @@ import Navigation from './navigation/Navigation';
 import ActionButtons from './actions/ActionButtons';
 import MobileMenu from './mobile/MobileMenu';
 import { useHeader } from '../../../hooks';
+import { useCart } from '@/contexts/CartContext';
 
 export default function Header() {
-  const { isMenuOpen, cartCount, toggleMenu, closeMenu } = useHeader(3);
+  const { isMenuOpen, toggleMenu, closeMenu } = useHeader();
+  const { totalItems } = useCart();
 
   return (
     <header className="bg-linear-to-r from-gray-900 via-black to-gray-800 text-white shadow-2xl sticky top-0 z-50 backdrop-blur-md border-b border-gray-700/50">
@@ -16,7 +18,6 @@ export default function Header() {
           <Logo />
           <Navigation />
           <ActionButtons 
-            cartCount={cartCount}
             isMenuOpen={isMenuOpen}
             onMenuToggle={toggleMenu}
           />
@@ -24,7 +25,7 @@ export default function Header() {
         <MobileMenu 
           isOpen={isMenuOpen}
           onClose={closeMenu}
-          cartCount={cartCount}
+          cartCount={totalItems}
         />
       </div>
     </header>
