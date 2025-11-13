@@ -13,7 +13,7 @@ export default function MobileMenu({
   const navItems = useNavigation();
   const router = useRouter();
   const { currentUser, logout } = useAuth();
-  const { totalItems, toggleCart } = useCart();
+  const { totalItems } = useCart();
 
   const handleLogin = () => {
     router.push("/login");
@@ -25,7 +25,7 @@ export default function MobileMenu({
   };
 
   const handleCartClick = () => {
-    toggleCart();
+    router.push('/cart');
     onClose();
   };
 
@@ -58,7 +58,7 @@ export default function MobileMenu({
             <FiShoppingCart className="w-4 h-4" />
             <span>Basket</span>
             {totalItems > 0 && (
-              <span className="absolute -top-1 -right-1 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
+              <span className="absolute -top-1 -right-1 bg-linear-to-r from-orange-500 to-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
                 {totalItems}
               </span>
             )}
