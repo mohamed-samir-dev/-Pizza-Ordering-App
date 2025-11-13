@@ -45,7 +45,8 @@ export const pizzas: Pizza[] = [
     id: 6,
     name: "Hawaiian",
     price: "$13.99",
-    image: "/Hawaiian.webp",
+    image:
+      "https://github.com/mohamed-samir-dev/my-assets/blob/master/Hawaiian.webp?raw=true",
     description: "Ham, pineapple, and mozzarella cheese",
   },
   {

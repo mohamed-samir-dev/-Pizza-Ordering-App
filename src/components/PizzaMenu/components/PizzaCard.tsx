@@ -2,11 +2,12 @@ import { ShoppingBasket, Star } from "lucide-react";
 import Image from "next/image";
 import { PizzaCardProps } from "../types";
 
-
-
 export const PizzaCard = ({ pizza }: PizzaCardProps) => {
   return (
-    <div key={pizza.id} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 shrink-0 px-2 sm:px-4">
+    <div
+      key={pizza.id}
+      className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 shrink-0 px-2 sm:px-4"
+    >
       <div
         className="rounded-lg p-2 sm:p-4 relative"
         style={{ backgroundColor: "#191c1f" }}
