@@ -1,15 +1,34 @@
-import { ShoppingBasket, Star } from "lucide-react";
+import { ShoppingBasket, Star, Plus } from "lucide-react";
 import Image from "next/image";
 import { PizzaCardProps } from "@/types/components/PizzaMenu";
+import { useCart } from "@/contexts/CartContext";
+import { useState } from "react";
 
 export const PizzaCard = ({ pizza }: PizzaCardProps) => {
+  const { addItem } = useCart();
+  const [isAdding, setIsAdding] = useState(false);
+
+  const handleAddToCart = async () => {
+    setIsAdding(true);
+    addItem({
+      id: pizza.id,
+      name: pizza.name,
+      price: pizza.price,
+      image: pizza.image,
+      description: pizza.description,
+    });
+    
+    // Brief animation feedback
+    setTimeout(() => setIsAdding(false), 300);
+  };
+
   return (
     <div
       key={pizza.id}
       className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 shrink-0 px-2 sm:px-4"
     >
       <div
-        className="rounded-lg p-2 sm:p-4 relative"
+        className="rounded-lg p-2 sm:p-4 relative hover:shadow-xl transition-all duration-300 transform hover:scale-105"
         style={{ backgroundColor: "#191c1f" }}
       >
         {/* Heart Icon */}
@@ -46,7 +65,7 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
           <p className="text-gray-300 text-xs sm:text-sm mb-2 sm:mb-3">
             {pizza.description}
           </p>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
               <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
@@ -55,8 +74,25 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
                 {pizza.price}
               </span>
             </div>
-            <ShoppingBasket className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 hover:text-orange-500 cursor-pointer transition-colors" />
           </div>
+          
+          {/* Add to Cart Button */}
+          <button
+            onClick={handleAddToCart}
+            disabled={isAdding}
+            className={`w-full bg-linear-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${
+              isAdding ? 'scale-95 opacity-75' : ''
+            }`}
+          >
+            {isAdding ? (
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : (
+              <>
+                <Plus className="w-4 h-4" />
+                <span>Add to Cart</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
     </div>
