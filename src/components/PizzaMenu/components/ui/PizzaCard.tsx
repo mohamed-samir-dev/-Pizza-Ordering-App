@@ -1,4 +1,4 @@
-import { ShoppingBasket, Star, Plus } from "lucide-react";
+import { ShoppingBasket, Star } from "lucide-react";
 import Image from "next/image";
 import { PizzaCardProps } from "@/types/components/PizzaMenu";
 import { useCart } from "@/contexts/CartContext";
@@ -65,7 +65,7 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
           <p className="text-gray-300 text-xs sm:text-sm mb-2 sm:mb-3">
             {pizza.description}
           </p>
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
               <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
@@ -74,25 +74,20 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
                 {pizza.price}
               </span>
             </div>
+            <button
+              onClick={handleAddToCart}
+              disabled={isAdding}
+              className={`transition-all duration-300 ${
+                isAdding ? 'scale-95 opacity-75' : 'hover:scale-110'
+              }`}
+            >
+              {isAdding ? (
+                <div className="w-6 h-6 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <ShoppingBasket className="w-6 h-6 sm:w-7 sm:h-7 text-gray-400 hover:text-orange-500 cursor-pointer transition-colors" />
+              )}
+            </button>
           </div>
-          
-          {/* Add to Cart Button */}
-          <button
-            onClick={handleAddToCart}
-            disabled={isAdding}
-            className={`w-full bg-linear-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${
-              isAdding ? 'scale-95 opacity-75' : ''
-            }`}
-          >
-            {isAdding ? (
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-            ) : (
-              <>
-                <Plus className="w-4 h-4" />
-                <span>Add to Cart</span>
-              </>
-            )}
-          </button>
         </div>
       </div>
     </div>
