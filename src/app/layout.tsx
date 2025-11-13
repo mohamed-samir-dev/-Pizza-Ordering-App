@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "../components";
 import { CartProvider } from "../contexts/CartContext";
 import { ToastProvider } from "../contexts/ToastContext";
+import { FavoritesProvider } from "../contexts/FavoritesContext";
 import { CartSidebar } from "../components/cart/CartSidebar";
 
 const geistSans = Geist({
@@ -33,11 +34,13 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ToastProvider>
-          <CartProvider>
-            <Header />
-            {children}
-            <CartSidebar />
-          </CartProvider>
+          <FavoritesProvider>
+            <CartProvider>
+              <Header />
+              {children}
+              <CartSidebar />
+            </CartProvider>
+          </FavoritesProvider>
         </ToastProvider>
       </body>
     </html>
