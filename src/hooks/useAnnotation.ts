@@ -9,8 +9,8 @@ export const useAnnotation = () => {
       const annotation = annotate(hottestDishRef.current, {
         type: "circle",
         color: "#ff6b35",
-        strokeWidth: 4,
-        iterations: 2,
+        strokeWidth: 3,
+        iterations: 3,
         animationDuration: 2000,
         padding: 15,
       });
