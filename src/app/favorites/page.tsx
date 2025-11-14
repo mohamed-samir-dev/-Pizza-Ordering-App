@@ -28,7 +28,7 @@ export default function FavoritesPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
         <FavoritesHeader favoritesCount={favorites.length} />
         
         {favorites.length === 0 ? (
