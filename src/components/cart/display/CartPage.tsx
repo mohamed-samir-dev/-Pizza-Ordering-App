@@ -18,7 +18,6 @@ export const CartPage: React.FC = () => {
 
   const handleClearCart = () => {
     clearCart();
-    showToast('Cart cleared', 'info');
   };
 
   return (
@@ -29,13 +28,13 @@ export const CartPage: React.FC = () => {
         onClearCart={handleClearCart}
       />
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {items.length === 0 ? (
           <EmptyCart />
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-6">
-              <h2 className="text-2xl font-bold text-white mb-6">Order Items</h2>
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="xl:col-span-2 space-y-4 sm:space-y-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Order Items</h2>
               {items.map((item) => (
                 <CartItem
                   key={item.id}
@@ -46,7 +45,7 @@ export const CartPage: React.FC = () => {
               ))}
             </div>
 
-            <div className="lg:col-span-1">
+            <div className="xl:col-span-1">
               <OrderSummary
                 totalItems={totalItems}
                 totalPrice={totalPrice}
