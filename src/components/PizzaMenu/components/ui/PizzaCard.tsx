@@ -22,6 +22,8 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
       description: pizza.description,
     });
     
+    showToast(`${pizza.name} added to basket!`, 'success');
+    
     // Brief animation feedback
     setTimeout(() => setIsAdding(false), 300);
   };
@@ -29,6 +31,7 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
   const handleToggleFavorite = () => {
     if (isFavorite(pizza.id)) {
       removeFromFavorites(pizza.id);
+      showToast(`${pizza.name} removed from favorites`, 'info');
     } else {
       addToFavorites({
         id: pizza.id,
@@ -37,6 +40,7 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
         image: pizza.image,
         description: pizza.description,
       });
+      showToast(`${pizza.name} added to favorites!`, 'success');
     }
   };
 
