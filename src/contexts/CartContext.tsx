@@ -1,6 +1,7 @@
 'use client'
-import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+import React, { createContext, useContext, useReducer, ReactNode, useEffect } from 'react';
 import { CartItem, CartContextType } from '@/types/cart';
+import { saveCartToStorage, loadCartFromStorage } from '@/utils/localStorage';
 
 interface CartState {
   items: CartItem[];
@@ -12,7 +13,8 @@ type CartAction =
   | { type: 'REMOVE_ITEM'; payload: number }
   | { type: 'UPDATE_QUANTITY'; payload: { id: number; quantity: number } }
   | { type: 'CLEAR_CART' }
-  | { type: 'TOGGLE_CART' };
+  | { type: 'TOGGLE_CART' }
+  | { type: 'LOAD_CART'; payload: CartItem[] };
 
 const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
@@ -67,6 +69,12 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
         isCartOpen: !state.isCartOpen,
       };
 
+    case 'LOAD_CART':
+      return {
+        ...state,
+        items: action.payload,
+      };
+
     default:
       return state;
   }
@@ -79,6 +87,17 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     items: [],
     isCartOpen: false,
   });
+
+  useEffect(() => {
+    const savedItems = loadCartFromStorage();
+    if (savedItems.length > 0) {
+      dispatch({ type: 'LOAD_CART', payload: savedItems });
+    }
+  }, []);
+
+  useEffect(() => {
+    saveCartToStorage(state.items);
+  }, [state.items]);
 
   const totalItems = state.items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = state.items.reduce((sum, item) => {
