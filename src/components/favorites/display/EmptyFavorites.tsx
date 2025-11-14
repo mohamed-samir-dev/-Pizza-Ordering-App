@@ -11,7 +11,7 @@ export default function EmptyFavorites() {
       <p className="text-sm sm:text-base text-gray-500 mb-6 sm:mb-8 max-w-md mx-auto">Start adding pizzas to your favorites by clicking the heart icon!</p>
       <Link 
         href="/"
-        className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
+        className="inline-flex items-center space-x-2 bg-linear-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
       >
         <span>Browse Menu</span>
       </Link>
