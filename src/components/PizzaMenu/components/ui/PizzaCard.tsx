@@ -63,7 +63,7 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
         </div>
 
         {/* Pizza Image */}
-        <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden flex-shrink-0">
+        <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden shrink-0">
           <Image
             src={pizza.image}
             alt={pizza.name}
@@ -75,15 +75,15 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
 
         {/* Pizza Info */}
         <div className="text-left flex-1 flex flex-col min-h-0">
-          <h3 className="text-white text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 line-clamp-2 break-words">
+          <h3 className="text-white text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 line-clamp-2 wrap-break-word">
             {pizza.name}
           </h3>
-          <p className="text-gray-300 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2 break-words flex-1">
+          <p className="text-gray-300 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2 wrap-break-word flex-1">
             {pizza.description}
           </p>
           <div className="flex items-center justify-between mt-auto">
             <div className="flex items-center gap-1 min-w-0 flex-1">
-              <div className="flex items-center gap-0.5 flex-shrink-0">
+              <div className="flex items-center gap-0.5 shrink-0">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
@@ -95,7 +95,7 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
             <button
               onClick={handleAddToCart}
               disabled={isAdding}
-              className={`transition-all duration-300 flex-shrink-0 ml-2 ${
+              className={`transition-all duration-300 shrink-0 ml-2 ${
                 isAdding ? 'scale-95 opacity-75' : 'hover:scale-110'
               }`}
             >
