@@ -35,7 +35,7 @@ export default function HeroImage() {
       <div className="relative">
         <div
           ref={scribbleRef}
-          className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] xl:w-[500px] xl:h-[500px] rounded-2xl overflow-hidden  "
+          className="relative w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:h-[380px] xl:w-[420px] xl:h-[420px] rounded-2xl overflow-hidden"
         >
           <Image
             src="https://github.com/mohamed-samir-dev/my-assets/blob/master/ChatGPT%20Image%2011%20%D9%86%D9%88%D9%81%D9%85%D8%A8%D8%B1%202025%D8%8C%2006_45_40%20%D9%85-Photoroom.png?raw=true"
