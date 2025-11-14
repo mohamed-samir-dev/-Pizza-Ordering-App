@@ -10,7 +10,7 @@ export default function CartItem({
   onRemoveItem,
 }: CartItemProps) {
   return (
-    <div className="bg-gradient-to-r from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-6 border border-gray-600/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group">
+    <div className="bg-linear-to-r from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-6 border border-gray-600/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group">
       <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
         <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl overflow-hidden shrink-0 shadow-lg group-hover:shadow-orange-500/20 transition-shadow duration-300">
           <Image
@@ -20,7 +20,7 @@ export default function CartItem({
             height={128}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
         </div>
 
         <div className="flex-1 min-w-0 text-center md:text-left">
@@ -29,7 +29,7 @@ export default function CartItem({
 
           <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0 gap-4">
             <div className="flex items-baseline space-x-2">
-              <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+              <span className="text-2xl sm:text-3xl font-bold bg-linear-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
                 {item.price}
               </span>
               <span className="text-gray-400 text-sm">each</span>
