@@ -39,7 +39,7 @@ export default function MobileMenu({
   return (
     <div
       className={`lg:hidden transition-all duration-300 overflow-hidden ${
-        isOpen ? "max-h-128 opacity-100" : "max-h-0 opacity-0"
+        isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
       }`}
     >
       <div className="py-4 space-y-4 border-t border-gray-700/50 text-center">

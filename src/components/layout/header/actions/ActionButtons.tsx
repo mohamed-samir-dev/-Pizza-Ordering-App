@@ -77,7 +77,7 @@ export default function ActionButtons({ isMenuOpen, onMenuToggle }: Omit<ActionB
         >
           <FiUser className="w-4 h-4" />
           <span>Login</span>
-        </button>
+          </button>
       )}
       
       <button
