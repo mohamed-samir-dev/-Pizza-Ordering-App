@@ -4,8 +4,8 @@ interface MenuHeaderProps {
 
 export const MenuHeader = ({ hottestDishRef }: MenuHeaderProps) => {
   return (
-    <div className="text-center mb-8 sm:mb-12 px-4">
-      <h1 className="text-[#f1f1f1] text-2xl sm:text-2xl lg:text-4xl font-bold">
+    <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-2 sm:px-4 md:px-6">
+      <h1 className="text-[#f1f1f1] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
         Our New{" "}
         <span 
           ref={hottestDishRef}
