@@ -5,6 +5,8 @@ import { useNavigation, useAuth } from "../../../../hooks";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/contexts/CartContext";
 import { useFavorites } from "@/contexts/FavoritesContext";
+import { useCartGuard } from "@/hooks/auth/useCartGuard";
+import { useState, useEffect } from "react";
 
 export default function MobileMenu({
   isOpen,
@@ -16,24 +18,46 @@ export default function MobileMenu({
   const { currentUser, logout } = useAuth();
   const { totalItems } = useCart();
   const { totalFavorites } = useFavorites();
+  const { checkAuthAndNavigate } = useCartGuard();
+  const [isFlashing, setIsFlashing] = useState(false);
 
   const handleLogin = () => {
     router.push("/login");
+    window.dispatchEvent(new Event('stopFlashLoginButton'));
     onClose();
   };
+
+  useEffect(() => {
+    const handleFlashLogin = () => {
+      setIsFlashing(true);
+    };
+
+    const handleStopFlash = () => {
+      setIsFlashing(false);
+    };
+
+    window.addEventListener('flashLoginButton', handleFlashLogin);
+    window.addEventListener('stopFlashLoginButton', handleStopFlash);
+    return () => {
+      window.removeEventListener('flashLoginButton', handleFlashLogin);
+      window.removeEventListener('stopFlashLoginButton', handleStopFlash);
+    };
+  }, []);
 
   const handleLogout = () => {
     logout();
   };
 
   const handleCartClick = () => {
-    router.push('/cart');
-    onClose();
+    if (checkAuthAndNavigate('/cart')) {
+      onClose();
+    }
   };
 
   const handleFavoritesClick = () => {
-    router.push('/favorites');
-    onClose();
+    if (checkAuthAndNavigate('/favorites')) {
+      onClose();
+    }
   };
 
   return (
@@ -98,7 +122,9 @@ export default function MobileMenu({
           ) : (
             <button
               onClick={handleLogin}
-              className="w-full bg-linear-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
+              className={`w-full bg-linear-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
+                isFlashing ? 'animate-pulse ring-4 ring-orange-300' : ''
+              }`}
             >
               <FiUser className="w-4 h-4" />
               <span>Login</span>
