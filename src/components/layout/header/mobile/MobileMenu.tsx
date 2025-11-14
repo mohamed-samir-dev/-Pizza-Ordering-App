@@ -1,64 +1,19 @@
-"use client";
-import { FiUser, FiSearch, FiShoppingCart, FiLogOut, FiHeart } from "react-icons/fi";
-import { MobileMenuProps } from "../../../../types";
-import { useNavigation, useAuth } from "../../../../hooks";
-import { useRouter } from "next/navigation";
-import { useCart } from "@/contexts/CartContext";
-import { useFavorites } from "@/contexts/FavoritesContext";
-import { useCartGuard } from "@/hooks/auth/useCartGuard";
-import { useState, useEffect } from "react";
+'use client'
+import { MobileMenuProps } from '../../../../types';
+import { useAuth } from '../../../../hooks';
+import MobileNavigation from './navigation/MobileNavigation';
+import MobileSearchButton from './actions/MobileSearchButton';
+import MobileFavoritesButton from './actions/MobileFavoritesButton';
+import MobileCartButton from './actions/MobileCartButton';
+import MobileLoginButton from './auth/MobileLoginButton';
+import MobileUserProfile from './auth/MobileUserProfile';
 
 export default function MobileMenu({
   isOpen,
   onClose,
-  cartCount = 0,
+  // cartCount = 0,
 }: MobileMenuProps) {
-  const navItems = useNavigation();
-  const router = useRouter();
-  const { currentUser, logout } = useAuth();
-  const { totalItems } = useCart();
-  const { totalFavorites } = useFavorites();
-  const { checkAuthAndNavigate } = useCartGuard();
-  const [isFlashing, setIsFlashing] = useState(false);
-
-  const handleLogin = () => {
-    router.push("/login");
-    window.dispatchEvent(new Event('stopFlashLoginButton'));
-    onClose();
-  };
-
-  useEffect(() => {
-    const handleFlashLogin = () => {
-      setIsFlashing(true);
-    };
-
-    const handleStopFlash = () => {
-      setIsFlashing(false);
-    };
-
-    window.addEventListener('flashLoginButton', handleFlashLogin);
-    window.addEventListener('stopFlashLoginButton', handleStopFlash);
-    return () => {
-      window.removeEventListener('flashLoginButton', handleFlashLogin);
-      window.removeEventListener('stopFlashLoginButton', handleStopFlash);
-    };
-  }, []);
-
-  const handleLogout = () => {
-    logout();
-  };
-
-  const handleCartClick = () => {
-    if (checkAuthAndNavigate('/cart')) {
-      onClose();
-    }
-  };
-
-  const handleFavoritesClick = () => {
-    if (checkAuthAndNavigate('/favorites')) {
-      onClose();
-    }
-  };
+  const { currentUser } = useAuth();
 
   return (
     <div
@@ -67,68 +22,15 @@ export default function MobileMenu({
       }`}
     >
       <div className="py-4 space-y-4 border-t border-gray-700/50 text-center">
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 font-medium"
-            onClick={onClose}
-          >
-            {item.label}
-          </a>
-        ))}
+        <MobileNavigation onClose={onClose} />
         <div className="px-4 pt-4 border-t border-gray-700/50 space-y-3">
-          <button className="w-full bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2 text-gray-300 hover:text-white">
-            <FiSearch className="w-4 h-4" />
-            <span>Search</span>
-          </button>
-          <button 
-            onClick={handleFavoritesClick}
-            className="relative w-full bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2 text-gray-300 hover:text-white"
-          >
-            <FiHeart className="w-4 h-4" />
-            <span>Favorites</span>
-            {totalFavorites > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
-                {totalFavorites}
-              </span>
-            )}
-          </button>
-          <button 
-            onClick={handleCartClick}
-            className="relative w-full bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2 text-gray-300 hover:text-white"
-          >
-            <FiShoppingCart className="w-4 h-4" />
-            <span>Basket</span>
-            {totalItems > 0 && (
-              <span className="absolute -top-1 -right-1 bg-linear-to-r from-orange-500 to-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
-                {totalItems}
-              </span>
-            )}
-          </button>
+          <MobileSearchButton />
+          <MobileFavoritesButton onClose={onClose} />
+          <MobileCartButton onClose={onClose} />
           {currentUser ? (
-            <div className="space-y-3">
-              <div className="text-center text-gray-300 text-sm">
-                Hi, {currentUser.name}
-              </div>
-              <button
-                onClick={handleLogout}
-                className="w-full bg-linear-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <FiLogOut className="w-4 h-4" />
-                <span>Logout</span>
-              </button>
-            </div>
+            <MobileUserProfile />
           ) : (
-            <button
-              onClick={handleLogin}
-              className={`w-full bg-linear-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
-                isFlashing ? 'animate-pulse ring-4 ring-orange-300' : ''
-              }`}
-            >
-              <FiUser className="w-4 h-4" />
-              <span>Login</span>
-            </button>
+            <MobileLoginButton onClose={onClose} />
           )}
         </div>
       </div>

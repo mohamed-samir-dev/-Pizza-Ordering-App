@@ -2,7 +2,7 @@
 import React from 'react';
 import Logo from './branding/Logo';
 import Navigation from './navigation/Navigation';
-import ActionButtons from './actions/ActionButtons';
+import ActionButtons from './actions/main/ActionButtons';
 import MobileMenu from './mobile/MobileMenu';
 import { useHeader } from '../../../hooks';
 import { useCart } from '@/contexts/CartContext';
