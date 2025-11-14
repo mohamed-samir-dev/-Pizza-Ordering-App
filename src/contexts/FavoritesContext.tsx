@@ -1,5 +1,6 @@
 'use client'
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { saveFavoritesToStorage, loadFavoritesFromStorage } from '@/utils/localStorage';
 
 export interface FavoriteItem {
   id: number;
@@ -22,12 +23,24 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(undefin
 export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
 
+  useEffect(() => {
+    setFavorites(loadFavoritesFromStorage());
+  }, []);
+
   const addToFavorites = (item: FavoriteItem) => {
-    setFavorites(prev => [...prev, item]);
+    setFavorites(prev => {
+      const updated = [...prev, item];
+      saveFavoritesToStorage(updated);
+      return updated;
+    });
   };
 
   const removeFromFavorites = (id: number) => {
-    setFavorites(prev => prev.filter(item => item.id !== id));
+    setFavorites(prev => {
+      const updated = prev.filter(item => item.id !== id);
+      saveFavoritesToStorage(updated);
+      return updated;
+    });
   };
 
   const isFavorite = (id: number) => {
