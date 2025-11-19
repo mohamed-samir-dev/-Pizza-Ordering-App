@@ -1,7 +1,15 @@
 "use client";
 import Link from "next/link";
+import { useFlash } from "@/contexts/FlashContext";
 
 export default function HeroContent() {
+  const { triggerFlash } = useFlash();
+
+  const handleHowToOrder = () => {
+    triggerFlash();
+    document.getElementById('pizza-menu')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
       <div className="space-y-4 sm:space-y-6">
@@ -22,12 +30,12 @@ export default function HeroContent() {
         <button className="bg-linear-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
           Get Started
         </button>
-        <Link
-          href="#"
-          className="border-2 border-gray-600 hover:border-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:bg-orange-500/10 text-center"
+        <button
+          onClick={handleHowToOrder}
+          className="border-2 border-gray-600 hover:border-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:bg-orange-500/10"
         >
           How To Order
-        </Link>
+        </button>
       </div>
     </div>
   );
