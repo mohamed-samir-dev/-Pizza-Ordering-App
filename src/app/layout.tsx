@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from "../components";
+import { Header, Footer } from "../components";
 import { CartProvider } from "../contexts/CartContext";
 import { ToastProvider } from "../contexts/ToastContext";
 import { FavoritesProvider } from "../contexts/FavoritesContext";
+import { FlashProvider } from "../contexts/FlashContext";
 import { AuthToast } from "../components/ui/AuthToast";
 
 const geistSans = Geist({
@@ -36,9 +37,12 @@ export default function RootLayout({
         <ToastProvider>
           <FavoritesProvider>
             <CartProvider>
-              <Header />
-              {children}
-              <AuthToast />
+              <FlashProvider>
+                <Header />
+                {children}
+                <Footer />
+                <AuthToast />
+              </FlashProvider>
             </CartProvider>
           </FavoritesProvider>
         </ToastProvider>
