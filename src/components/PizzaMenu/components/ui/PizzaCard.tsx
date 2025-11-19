@@ -57,12 +57,16 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
       >
         {/* Heart Icon */}
         <div className="absolute top-2 right-2 sm:top-4 sm:right-4">
-          <button onClick={handleToggleFavorite}>
+          <button 
+            onClick={handleToggleFavorite}
+            className="p-1 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+            aria-label={isFavorite(pizza.id) ? `Remove ${pizza.name} from favorites` : `Add ${pizza.name} to favorites`}
+          >
             <Heart
               className={`w-5 h-5 sm:w-6 sm:h-6 cursor-pointer transition-colors ${
                 isFavorite(pizza.id)
                   ? 'text-red-500 fill-current'
-                  : 'text-gray-400 hover:text-red-500'
+                  : 'text-gray-300 hover:text-red-500'
               }`}
             />
           </button>
@@ -72,10 +76,11 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
         <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden shrink-0">
           <Image
             src={pizza.image}
-            alt={pizza.name}
+            alt={`${pizza.name} - ${pizza.description}`}
             width={160}
             height={160}
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
 
@@ -84,32 +89,33 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
           <h3 className="text-white text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 line-clamp-2 wrap-break-word">
             {pizza.name}
           </h3>
-          <p className="text-gray-300 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2 wrap-break-word flex-1">
+          <p className="text-gray-200 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2 wrap-break-word flex-1">
             {pizza.description}
           </p>
           <div className="flex items-center justify-between mt-auto">
             <div className="flex items-center gap-1 min-w-0 flex-1">
-              <div className="flex items-center gap-0.5 shrink-0">
+              <div className="flex items-center gap-0.5 shrink-0" role="img" aria-label="3 out of 5 stars rating">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
               </div>
-              <span className="text-orange-500 text-sm sm:text-base lg:text-lg font-bold ml-1 truncate">
+              <span className="text-orange-400 text-sm sm:text-base lg:text-lg font-bold ml-1 truncate">
                 {pizza.price}
               </span>
             </div>
             <button
               onClick={handleAddToCart}
               disabled={isAdding}
-              className={`transition-all duration-300 shrink-0 ml-2 ${
+              className={`p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-300 shrink-0 ml-2 ${
                 isAdding ? 'scale-95 opacity-75' : 'hover:scale-110'
               } ${isFlashing ? 'animate-pulse' : ''}`}
+              aria-label={`Add ${pizza.name} to cart for ${pizza.price}`}
             >
               {isAdding ? (
-                <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" aria-label="Adding to cart" />
               ) : (
                 <ShoppingBasket className={`w-5 h-5 sm:w-6 sm:h-6 cursor-pointer transition-colors ${
-                  isFlashing ? 'text-orange-500 animate-bounce' : 'text-gray-400 hover:text-orange-500'
+                  isFlashing ? 'text-orange-500 animate-bounce' : 'text-gray-300 hover:text-orange-500'
                 }`} />
               )}
             </button>

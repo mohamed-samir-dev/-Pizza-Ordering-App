@@ -14,7 +14,8 @@ export default function CartButton() {
   return (
     <button 
       onClick={handleCartClick}
-      className="relative hidden lg:flex p-2 hover:bg-white/10 rounded-lg transition-colors duration-300 group cursor-pointer"
+      className="relative hidden lg:flex p-2 hover:bg-white/10 rounded-lg transition-colors duration-300 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+      aria-label={`Shopping cart with ${totalItems} items`}
     >
       <ShoppingBasket className="w-8 h-8 sm:w-5 sm:h-5 text-gray-400 hover:text-orange-500 cursor-pointer transition-colors" />
       {totalItems > 0 && (

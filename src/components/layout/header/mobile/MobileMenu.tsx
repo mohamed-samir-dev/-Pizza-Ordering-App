@@ -17,9 +17,12 @@ export default function MobileMenu({
 
   return (
     <div
+      id="mobile-menu"
       className={`lg:hidden transition-all duration-300 overflow-hidden ${
         isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
       }`}
+      role="navigation"
+      aria-label="Mobile navigation menu"
     >
       <div className="py-4 space-y-4 border-t border-gray-700/50 text-center">
         <MobileNavigation onClose={onClose} />

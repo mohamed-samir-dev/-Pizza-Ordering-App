@@ -5,7 +5,7 @@ import ChefCard from './ChefCard';
 const OurChief = () => {
   return (
     <div className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12">
+      <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12">
         Meet Our{" "}
         <RoughNotation type="circle" show={true} color="#ff6b35">
           Best Team
