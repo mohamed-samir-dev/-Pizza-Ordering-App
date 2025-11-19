@@ -4,12 +4,14 @@ import { PizzaCardProps } from "@/types/components/PizzaMenu";
 import { useCart } from "@/contexts/CartContext";
 import { useFavorites } from "@/contexts/FavoritesContext";
 import { useToast } from "@/contexts/ToastContext";
+import { useFlash } from "@/contexts/FlashContext";
 import { useState } from "react";
 
 export const PizzaCard = ({ pizza }: PizzaCardProps) => {
   const { addItem } = useCart();
   const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
   const { showToast } = useToast();
+  const { isFlashing } = useFlash();
   const [isAdding, setIsAdding] = useState(false);
 
   const handleAddToCart = async () => {
@@ -101,12 +103,14 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
               disabled={isAdding}
               className={`transition-all duration-300 shrink-0 ml-2 ${
                 isAdding ? 'scale-95 opacity-75' : 'hover:scale-110'
-              }`}
+              } ${isFlashing ? 'animate-pulse' : ''}`}
             >
               {isAdding ? (
                 <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
               ) : (
-                <ShoppingBasket className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 hover:text-orange-500 cursor-pointer transition-colors" />
+                <ShoppingBasket className={`w-5 h-5 sm:w-6 sm:h-6 cursor-pointer transition-colors ${
+                  isFlashing ? 'text-orange-500 animate-bounce' : 'text-gray-400 hover:text-orange-500'
+                }`} />
               )}
             </button>
           </div>
