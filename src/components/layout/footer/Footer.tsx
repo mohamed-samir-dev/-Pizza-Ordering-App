@@ -16,101 +16,101 @@ export default function Footer() {
 
   return (
     <>
-      <footer id="contact" className="bg[#343a40] text-white py-12">
+      <footer id="contact" className="bg-[#000814] text-white py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             
             {/* Logo and Description */}
-            <div>
+            <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="text-2xl font-bold">
+                <div className="text-xl sm:text-2xl font-bold">
                   <span className="bg-linear-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
                     Pizza
                   </span>
                   <span className="text-white ml-1">Express</span>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed mb-6 sm:mb-0">
                 Delicious pizza delivered fresh to your door. Experience the best flavors with our premium ingredients and fast delivery service.
               </p>
             </div>
 
             {/* Company */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <div className="mb-6 sm:mb-0">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Company</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">About Us</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Our Story</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Careers</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Press</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">Blog</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors text-sm sm:text-base">About Us</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors text-sm sm:text-base">Our Story</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors text-sm sm:text-base">Careers</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors text-sm sm:text-base">Press</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-orange-400 transition-colors text-sm sm:text-base">Blog</a></li>
               </ul>
             </div>
 
             {/* Contact */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center space-x-2 text-gray-400">
-                  <MdLocationOn className="text-gray-400" size={18} />
-                  <span>123 Pizza Street, Food City</span>
+            <div className="mb-6 sm:mb-0">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li className="flex items-start space-x-2 text-gray-400">
+                  <MdLocationOn className="text-gray-400 mt-0.5 shrink-0" size={16} />
+                  <span className="text-sm sm:text-base">123 Pizza Street, Food City</span>
                 </li>
                 <li className="flex items-center space-x-2 text-gray-400">
-                  <MdPhone className="text-gray-400" size={18} />
-                  <span>+1 (555) 123-4567</span>
+                  <MdPhone className="text-gray-400 shrink-0" size={16} />
+                  <span className="text-sm sm:text-base">+1 (555) 123-4567</span>
                 </li>
-                <li className="flex items-center space-x-2 text-gray-400">
-                  <MdEmail className="text-gray-400" size={18} />
-                  <span>info@pizzaexpress.com</span>
+                <li className="flex items-start space-x-2 text-gray-400">
+                  <MdEmail className="text-gray-400 mt-0.5 shrink-0" size={16} />
+                  <span className="text-sm sm:text-base break-all">info@pizzaexpress.com</span>
                 </li>
-                <li className="flex items-center space-x-2 text-gray-400">
-                  <MdAccessTime className="text-gray-400" size={18} />
-                  <span>Mon-Sun: 10AM - 11PM</span>
+                <li className="flex items-start space-x-2 text-gray-400">
+                  <MdAccessTime className="text-gray-400 mt-0.5 shrink-0" size={16} />
+                  <span className="text-sm sm:text-base">Mon-Sun: 10AM - 11PM</span>
                 </li>
               </ul>
             </div>
 
             {/* Social Media */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Social Media</h3>
-              <div className="flex space-x-4 mb-6">
+            <div className="sm:col-span-2 lg:col-span-1">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Follow Us</h3>
+              <div className="flex space-x-3 sm:space-x-4 mb-4 sm:mb-6">
                 <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
-                  <FaFacebook size={24} />
+                  <FaFacebook size={20} className="sm:w-6 sm:h-6" />
                 </a>
                 <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
-                  <FaTwitter size={24} />
+                  <FaTwitter size={20} className="sm:w-6 sm:h-6" />
                 </a>
                 <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
-                  <FaInstagram size={24} />
+                  <FaInstagram size={20} className="sm:w-6 sm:h-6" />
                 </a>
                 <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
-                  <FaLinkedin size={24} />
+                  <FaLinkedin size={20} className="sm:w-6 sm:h-6" />
                 </a>
               </div>
               
               {/* App Store Buttons */}
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3">
                 <button 
                   onClick={handleAppStoreClick}
-                  className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors w-full"
+                  className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-3 sm:px-4 py-2 rounded-lg transition-colors w-full"
                 >
-                  <FaGooglePlay size={20} />
-                  <span className="text-sm">Google Play</span>
+                  <FaGooglePlay size={16} className="sm:w-5 sm:h-5" />
+                  <span className="text-xs sm:text-sm">Google Play</span>
                 </button>
                 <button 
                   onClick={handleAppStoreClick}
-                  className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors w-full"
+                  className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-3 sm:px-4 py-2 rounded-lg transition-colors w-full"
                 >
-                  <FaApple size={20} />
-                  <span className="text-sm">App Store</span>
+                  <FaApple size={16} className="sm:w-5 sm:h-5" />
+                  <span className="text-xs sm:text-sm">App Store</span>
                 </button>
               </div>
             </div>
           </div>
 
           {/* Bottom Border */}
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
+          <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
+            <p className="text-gray-400 text-xs sm:text-sm">
               © 2024 Pizza Express. All rights reserved.
             </p>
           </div>
@@ -119,15 +119,15 @@ export default function Footer() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-sm mx-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">App Under Development</h3>
-            <p className="text-gray-600 mb-4">
+        <div className="fixed inset-0 backdrop-blur-sm bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg p-4 sm:p-6 max-w-sm w-full mx-4">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">App Under Development</h3>
+            <p className="text-gray-600 mb-4 text-sm sm:text-base">
               Our mobile application is currently under development. Stay tuned for updates!
             </p>
             <button 
               onClick={closeModal}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors"
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors text-sm sm:text-base"
             >
               Close
             </button>

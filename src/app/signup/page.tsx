@@ -1,6 +1,12 @@
 import SignupHeader from './components/SignupHeader';
 import SignupForm from './components/SignupForm';
 import LoginLink from './components/LoginLink';
+import { generateMetadata } from '../../lib/seo';
+
+export const metadata = generateMetadata(
+  'Sign Up',
+  'Create your VivaCon Pizza account and enjoy exclusive offers, faster checkout, and order tracking'
+);
 
 export default function SignupPage() {
   return (

@@ -1,6 +1,12 @@
 import LoginHeader from './components/LoginHeader';
 import LoginForm from './components/LoginForm';
 import SignupLink from './components/SignupLink';
+import { generateMetadata } from '../../lib/seo';
+
+export const metadata = generateMetadata(
+  'Login',
+  'Sign in to your VivaCon Pizza account to order delicious pizzas and track your orders'
+);
 
 export default function LoginPage() {
   return (

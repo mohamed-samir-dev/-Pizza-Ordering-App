@@ -7,6 +7,7 @@ import { ToastProvider } from "../contexts/ToastContext";
 import { FavoritesProvider } from "../contexts/FavoritesContext";
 import { FlashProvider } from "../contexts/FlashContext";
 import { AuthToast } from "../components/ui/AuthToast";
+import { generateMetadata, jsonLd } from "../lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,10 +19,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Food - Pizza Restaurant",
-  description: "Delicious pizza and food delivery",
-};
+export const metadata: Metadata = generateMetadata();
 
 export default function RootLayout({
   children,
@@ -30,6 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
