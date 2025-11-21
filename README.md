@@ -181,12 +181,6 @@ npm run build
 npm run start
 ```
 
-### Deployment Platforms
-This application can be deployed on:
-- **[Vercel](https://vercel.com/)** (Recommended for Next.js)
-- **[Netlify](https://netlify.com/)**
-- **[AWS Amplify](https://aws.amazon.com/amplify/)**
-- **[Railway](https://railway.app/)**
 
 ## 🤝 Contributing
 
@@ -204,42 +198,8 @@ This project follows:
 - **Prettier** formatting (if configured)
 - **Conventional Commits** for commit messages
 
-## 🐛 Troubleshooting
 
-### Common Issues
-
-**Port 3000 already in use:**
-```bash
-npx kill-port 3000
-# or use a different port
-npm run dev -- -p 3001
-```
-
-**Module not found errors:**
-```bash
-rm -rf node_modules package-lock.json
-npm install
-```
-
-**TypeScript errors:**
-```bash
-npm run lint
-# Fix any linting issues
-```
-
-## 📄 License
-
-This project is private and proprietary. All rights reserved.
-
-## 🙏 Acknowledgments
-
-- **Next.js Team** - For the amazing React framework
-- **Tailwind CSS** - For the utility-first CSS framework
-- **Lucide** - For the beautiful icon set
-- **Rough Notation** - For the hand-drawn animations
-
----
 
 **Made with ❤️ and ☕ by [Your Name]**
 
-For questions or support, please contact [your-email@example.com]
+For questions or support, please contact [mohammedsamiermouawad@gmail.com]
