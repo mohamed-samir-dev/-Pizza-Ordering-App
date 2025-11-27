@@ -52,14 +52,14 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
       className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 shrink-0 px-2 sm:px-4"
     >
       <div
-        className="rounded-lg p-3 sm:p-4 relative hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-full flex flex-col"
+        className="rounded-lg p-3 sm:p-4 relative  transition-all duration-300 transform  h-full flex flex-col"
         style={{ backgroundColor: "#191c1f" }}
       >
         {/* Heart Icon */}
         <div className="absolute top-2 right-2 sm:top-4 sm:right-4">
           <button 
             onClick={handleToggleFavorite}
-            className="p-1 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+            className="p-1 rounded-full  focus:outline-none "
             aria-label={isFavorite(pizza.id) ? `Remove ${pizza.name} from favorites` : `Add ${pizza.name} to favorites`}
           >
             <Heart
@@ -106,7 +106,7 @@ export const PizzaCard = ({ pizza }: PizzaCardProps) => {
             <button
               onClick={handleAddToCart}
               disabled={isAdding}
-              className={`p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-300 shrink-0 ml-2 ${
+              className={`p-2 rounded-full   ${
                 isAdding ? 'scale-95 opacity-75' : 'hover:scale-110'
               } ${isFlashing ? 'animate-pulse' : ''}`}
               aria-label={`Add ${pizza.name} to cart for ${pizza.price}`}

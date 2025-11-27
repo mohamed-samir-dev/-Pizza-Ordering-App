@@ -200,6 +200,6 @@ This project follows:
 
 
 
-**Made with ❤️ and ☕ by [Your Name]**
+**Made with ❤️ by [Mohammed Samier Mouawad]**
 
 For questions or support, please contact [mohammedsamiermouawad@gmail.com]

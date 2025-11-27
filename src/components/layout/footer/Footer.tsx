@@ -47,11 +47,11 @@ export default function Footer() {
             <div className="mb-6 sm:mb-0">
               <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Company</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="Learn about Pizza Express">About Us</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="Read our company story">Our Story</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="View career opportunities">Careers</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="Press releases and media">Press</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="Read our blog">Blog</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base" aria-label="Learn about Pizza Express">About Us</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base" aria-label="Read our company story">Our Story</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base" aria-label="View career opportunities">Careers</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base" aria-label="Press releases and media">Press</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors text-sm sm:text-base" aria-label="Read our blog">Blog</a></li>
               </ul>
             </div>
 
@@ -82,16 +82,16 @@ export default function Footer() {
             <div className="sm:col-span-2 lg:col-span-1">
               <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Follow Us</h3>
               <div className="flex space-x-3 sm:space-x-4 mb-4 sm:mb-6" role="list">
-                <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="Follow us on Facebook" role="listitem">
+                <a href="https://www.facebook.com/share/1GZtCVVXwh/" className="text-gray-300 hover:text-orange-400 transition-colors" aria-label="Follow us on Facebook" role="listitem"target='_blank'>
                   <FaFacebook size={20} className="sm:w-6 sm:h-6" />
                 </a>
-                <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="Follow us on Twitter" role="listitem">
+                <a href="https://x.com/Mouawad18804" className="text-gray-300 hover:text-orange-400 transition-colors " aria-label="Follow us on Twitter" role="listitem"target='_blank'>
                   <FaTwitter size={20} className="sm:w-6 sm:h-6" />
                 </a>
-                <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="Follow us on Instagram" role="listitem">
+                <a href="https://www.instagram.com/msamir.dev?igsh=b3Nra3hrd3QxMTc" className="text-gray-300 hover:text-orange-400 transition-colors r" aria-label="Follow us on Instagram" role="listitem" target='_blank'>
                   <FaInstagram size={20} className="sm:w-6 sm:h-6" />
                 </a>
-                <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" aria-label="Follow us on LinkedIn" role="listitem">
+                <a href="https://www.linkedin.com/in/mohammed-samier-mouawad/" className="text-gray-300 hover:text-orange-400 transition-colors " aria-label="Follow us on LinkedIn" role="listitem"target='_blank'>
                   <FaLinkedin size={20} className="sm:w-6 sm:h-6" />
                 </a>
               </div>
@@ -100,7 +100,7 @@ export default function Footer() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3">
                 <button 
                   onClick={handleAppStoreClick}
-                  className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-3 sm:px-4 py-2 rounded-lg transition-colors w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-white"
+                  className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-3 sm:px-4 py-2 rounded-lg transition-colors w-full"
                   aria-label="Download from Google Play Store"
                 >
                   <FaGooglePlay size={16} className="sm:w-5 sm:h-5" />
@@ -108,7 +108,7 @@ export default function Footer() {
                 </button>
                 <button 
                   onClick={handleAppStoreClick}
-                  className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-3 sm:px-4 py-2 rounded-lg transition-colors w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-white"
+                  className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-3 sm:px-4 py-2 rounded-lg transition-colors w-full"
                   aria-label="Download from Apple App Store"
                 >
                   <FaApple size={16} className="sm:w-5 sm:h-5" />
@@ -146,7 +146,7 @@ export default function Footer() {
             </p>
             <button 
               onClick={closeModal}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors text-sm sm:text-base  "
               autoFocus
             >
               Close
